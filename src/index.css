@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-canvas: #0E0E10;
+    --bg-surface: #151519;
+    --bg-elevated: #1C1C22;
+    --gold-accent: #C8A15B;
+    --gold-soft: rgba(200, 161, 91, 0.22);
+    --text-primary: #F5F1EA;
+    --text-secondary: #B7B0A4;
+    --text-muted: #847D72;
+    --border-hairline: rgba(245, 241, 234, 0.10);
+  }
+
+  html {
+    background-color: #0E0E10;
+    color: #F5F1EA;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: auto;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #0E0E10;
+    color: #F5F1EA;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    text-wrap: balance;
+  }
+
+  .font-hindi {
+    font-family: 'Noto Sans Devanagari', 'Manrope', sans-serif;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Architectural LED Strip Signature Motif */
+.led-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(200, 161, 91, 0.25) 20%,
+    rgba(200, 161, 91, 0.85) 50%,
+    rgba(200, 161, 91, 0.25) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(200, 161, 91, 0.22);
+}
+
+.led-line-left {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(200, 161, 91, 0.85) 0%,
+    rgba(200, 161, 91, 0.25) 55%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px rgba(200, 161, 91, 0.18);
+}
+
+.led-card-hover {
+  position: relative;
+  transition: border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.led-card-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0 16px auto 16px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 161, 91, 0.9), transparent);
+  opacity: 0;
+  transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.led-card-hover:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
